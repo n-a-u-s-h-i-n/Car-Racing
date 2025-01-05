@@ -14,7 +14,7 @@ car_2_x= 500
 car_2_y=50
 falling = []
 falling_speed = 2
-step = 0
+start_time = time.time()
 flag_gameOver = False
 flag_pause = False
 flag_animate = True
@@ -358,7 +358,7 @@ def update_falling_elements():
             
             glutLeaveMainLoop()
 def default_all():
-    global score, car_1_x, car_1_y, car_2_x, car_2_y, falling_elements, falling_elements_positions,finish,batch_elements_count
+    global f_start_y,start_time, score, car_1_x, car_1_y, car_2_x, car_2_y, falling_elements, falling_elements_positions,finish,batch_element_count,s_height
     car_1_x = 250
     car_1_y = 50
     car_2_x = 500
@@ -366,6 +366,8 @@ def default_all():
     falling_elements = []
     falling_elements_positions = []
     finish = False
+    start_time = time.time()
+    f_start_y= s_height-20
     batch_element_count = 0 
       
 def draw_falling_elements():
@@ -389,8 +391,6 @@ def draw_falling_elements():
             break  
 #Finishing Line
 finish = False
-#finish_line_speed=1
-start_time = time.time()
 f_start_x=100
 f_start_y=s_height-20
 def draw_finish_line():
